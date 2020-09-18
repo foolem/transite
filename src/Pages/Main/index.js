@@ -35,13 +35,14 @@ export default () => {
   const handleAnswer = isCorrect => {
     const newCurrent = state.currentLevel + 1;
     const isNextValid = newCurrent < Levels.length;
+    const nextHearts = isCorrect ? state.hearts : state.hearts - 1;
 
     setState(prevState => ({
       ...prevState,
       currentLevel: isNextValid ? newCurrent : prevState.currentLevel,
-      isFinishOpen: !isNextValid ? true : false,
+      isFinishOpen: !isNextValid || nextHearts === 0 ? true : false,
       score: isCorrect ? prevState.score + 1 : prevState.score,
-      hearts: isCorrect ? prevState.hearts : prevState.hearts - 1,
+      hearts: nextHearts,
     }));
 
     setTimeout(() => {
