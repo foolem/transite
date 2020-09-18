@@ -1,0 +1,59 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true,
+    "cypress/globals": true
+  },
+  "extends": ["react-app", "airbnb", "prettier", "prettier/react"],
+  "globals": {
+    "process": false,
+    "context": true
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "jsx": true
+    },
+    "sourceType": "module"
+  },
+  "plugins": ["react", "react-hooks", "prettier", "cypress"],
+  "rules": {
+    "import/extensions": 0,
+    "import/no-cycle": 0,
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        "specialLink": ["to"]
+      }
+    ],
+    "no-console": 0,
+    "prettier/prettier": "error",
+    "react/destructuring-assignment": 0,
+    "react/no-unescaped-entities": 0,
+    "react/jsx-props-no-spreading": 0,
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": ["**/*.test.js", "**/test/**"]
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "webpack": {},
+      "node": {
+        "moduleDirectory": ["node_modules", "./src"]
+      }
+    }
+  }
+}
